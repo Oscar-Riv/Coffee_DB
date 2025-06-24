@@ -382,5 +382,49 @@ Se evaluó la **desigualdad en el consumo entre países** usando dos métricas c
 - El **índice de Gini de 0.83** indica una **alta desigualdad en el consumo**: unos pocos países concentran la mayor parte del consumo global.
 - El **HHI de 2302.91** sugiere un mercado **moderadamente concentrado**, cercano al umbral de concentración alta (2500). Aunque hay varios actores relevantes, algunos países dominan la mayor parte del volumen.
 
+## 🔮 Paso 5: Pronósticos de Consumo con Modelos ARIMA
+
+Con el objetivo de proyectar el comportamiento futuro del consumo de café, se aplicaron modelos ARIMA (AutoRegressive Integrated Moving Average) tanto a nivel de **variedad de café** como para los **principales países consumidores**.
+
+---
+
+### 🔹 Pronóstico por tipo de café
+
+Se utilizaron series anuales de consumo agregado para cada tipo de café. A partir de los últimos 30 años de datos, se generaron proyecciones para los próximos 5 años.
+
+📎 Resultados: [`forecast_variedad_cafe.csv`](./output/forecast_variedad_cafe.csv)
+
+> 🧠 Este análisis permite anticipar la evolución de la demanda por variedad, clave para decisiones de producción, oferta y promoción.
+
+---
+
+### 🔹 Pronóstico por país (mercados clave)
+
+Se seleccionaron los 5 países con mayor volumen e impulso de crecimiento:
+
+- Brazil
+- Indonesia
+- Ethiopia
+- Mexico
+- Philippines
+
+A partir de sus series históricas de consumo, se generaron pronósticos de 5 años para cada país mediante ARIMA.
+
+📎 Resultados: [`forecast_paises_top.csv`](./output/forecast_paises_top.csv)
+
+> 📌 Estos pronósticos ayudan a identificar oportunidades comerciales específicas en mercados en expansión y prepararse para cambios de demanda.
+
+---
+
+### 📈 Visualizaciones de pronóstico
+
+A continuación se muestran las proyecciones gráficas por tipo de café y por país. Estas visualizaciones combinan los datos históricos reales con los valores proyectados.
+
+#### • Consumo proyectado por tipo de café
+📊 ![Forecast por tipo](./outputs/Forecast_Tipo_Cafe.png)
+
+#### • Consumo proyectado en países clave
+📊 ![Forecast por país](./outputs/Forecast_Paises_Top.png)
+
 
 
