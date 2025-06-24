@@ -466,3 +466,24 @@ Cada clúster agrupa países con patrones de consumo similares, considerando tan
 
 > 🧠 Esta segmentación puede apoyar decisiones estratégicas como campañas regionales, selección de mercados meta o desarrollo de productos diferenciados por perfil de consumo.
 
+## 7. Generación Automática de Resúmenes con IA Generativa
+
+Con el fin de agregar valor al análisis y facilitar la comunicación de resultados, se implementó una funcionalidad basada en modelos de lenguaje (LLMs) para generar resúmenes automáticos de los principales análisis realizados durante el proyecto.
+
+### Objetivo
+
+Convertir resultados cuantitativos de análisis exploratorios, de tendencias, pronósticos y segmentaciones en resúmenes textuales comprensibles, ideales para reportes ejecutivos, presentaciones o comunicación con actores no técnicos.
+
+### Implementación
+
+Se utilizó el modelo `gpt-3.5-turbo-16k` de OpenAI junto con la biblioteca oficial `openai`. El procedimiento consistió en:
+
+1. Cargar los principales `DataFrames` obtenidos durante el análisis desde archivos `.csv`.
+2. Construir prompts que combinan:
+   - Una vista previa de los datos (`head()` con formato Markdown).
+   - Instrucciones específicas de resumen para cada análisis.
+3. Enviar los prompts al modelo de lenguaje para generar el resumen.
+4. Guardar automáticamente los textos en archivos `.txt` para consulta.
+
+#### Código utilizado [`Resumen_LLM`](./scripts/Analisis_llm.py)
+
