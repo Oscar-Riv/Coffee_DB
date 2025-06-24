@@ -287,6 +287,100 @@ La siguiente gráfica muestra la evolución del consumo total anual por tipo de 
 ![Tendencia por tipo de café](./outputs/Tendencia_Tipo_Cafe_LinearFit.png)
 
 ---
+## 🔄 Paso 4: Ciclos de Consumo y Concentración de Mercado
+
+Este análisis se enfocó en caracterizar a los países según su comportamiento histórico de consumo, y evaluar cuán concentrado está el mercado global del café en términos de volumen.
+
+---
+
+### 🔹 Clasificación por ciclo de consumo
+
+Se aplicó una regresión lineal por país para estimar la pendiente de crecimiento anual y se calculó el **coeficiente de variación (CV)** como medida de estabilidad. Con base en estos dos indicadores, cada país fue clasificado en una de las siguientes categorías:
+
+- **Crecimiento**: pendiente > 5 y baja variabilidad (CV < 0.25)
+- **Maduro**: pendiente estable y baja variabilidad
+- **Volátil**: alta variabilidad (CV ≥ 0.4)
+- **Declinante**: pendiente negativa significativa
+
+📎 Archivo con resultados: [`clasificacion_ciclo_consumo.csv`](./outputs/clasificacion_ciclo_consumo.csv)
+
+Ejemplo de resultados:
+
+| Country                          |             Slope |         CV | Classification   |
+|:---------------------------------|------------------:|-----------:|:-----------------|
+| Timor-Leste                      |       0           | 0          | Maduro           |
+| Democratic Republic of Congo     |    -774.194       | 0.00182635 | Declinante       |
+| Congo                            |     231.137       | 0.0283716  | Crecimiento      |
+| Cuba                             |   53148.4         | 0.0547807  | Crecimiento      |
+| Panama                           |   -8532.73        | 0.0565211  | Declinante       |
+| Nigeria                          |    7788.65        | 0.0629827  | Crecimiento      |
+| Haiti                            |   71546.2         | 0.0659591  | Crecimiento      |
+| Dominican Republic               |  172809           | 0.0779586  | Crecimiento      |
+| Paraguay                         |    5406.01        | 0.0782381  | Crecimiento      |
+| Lao People's Democratic Republic |   80061.9         | 0.0853148  | Crecimiento      |
+| Costa Rica                       |  -24819.2         | 0.0878526  | Declinante       |
+| Peru                             |  151635           | 0.106047   | Crecimiento      |
+| Burundi                          |      85.1212      | 0.108523   | Crecimiento      |
+| Guatemala                        |  214799           | 0.11293    | Crecimiento      |
+| Kenya                            |   28812           | 0.115815   | Crecimiento      |
+| Liberia                          |    2162.4         | 0.127137   | Crecimiento      |
+| Cameroon                         |  -48439.2         | 0.153765   | Declinante       |
+| Guinea                           |   19735.3         | 0.153976   | Crecimiento      |
+| Colombia                         |       1.07837e+06 | 0.154212   | Crecimiento      |
+| Trinidad & Tobago                |   -5853.17        | 0.169102   | Declinante       |
+| India                            |       1.55464e+06 | 0.204759   | Crecimiento      |
+| Yemen                            | -250882           | 0.207361   | Declinante       |
+| Papua New Guinea                 |   -1248.29        | 0.207932   | Declinante       |
+| El Salvador                      |  241001           | 0.223127   | Crecimiento      |
+| Venezuela                        |       1.88122e+06 | 0.23326    | Crecimiento      |
+| Sierra Leone                     |   -5766.41        | 0.246367   | Declinante       |
+| Bolivia (Plurinational State of) |   73521.7         | 0.260115   | Maduro           |
+| Angola                           |   16885.4         | 0.269358   | Maduro           |
+| Honduras                         |  431299           | 0.290983   | Maduro           |
+| Jamaica                          |   -8339.97        | 0.300403   | Declinante       |
+| Brazil                           |       3.15095e+07 | 0.300452   | Maduro           |
+| Mexico                           |       3.39656e+06 | 0.301229   | Maduro           |
+| Nicaragua                        |  314433           | 0.306284   | Maduro           |
+| Guyana                           |   18457.6         | 0.315995   | Maduro           |
+| Sri Lanka                        |    -832.165       | 0.329167   | Declinante       |
+| Zimbabwe                         |   -7529.06        | 0.3351     | Declinante       |
+| Ethiopia                         |       5.77131e+06 | 0.337647   | Maduro           |
+| Malawi                           |   -2522.8         | 0.358532   | Declinante       |
+| Uganda                           |  420655           | 0.393674   | Maduro           |
+| Ecuador                          | -488529           | 0.395543   | Declinante       |
+| Madagascar                       |  471646           | 0.399683   | Maduro           |
+| Zambia                           |   -2360.42        | 0.41756    | Declinante       |
+| Indonesia                        |       8.62927e+06 | 0.478521   | Volátil          |
+| Rwanda                           |   -1036.67        | 0.513777   | Declinante       |
+| Gabon                            |   -1006.17        | 0.534638   | Declinante       |
+| Côte d'Ivoire                    |  712885           | 0.561423   | Volátil          |
+| Thailand                         |       2.65714e+06 | 0.596975   | Volátil          |
+| Philippines                      |       5.85995e+06 | 0.602643   | Volátil          |
+| Central African Republic         |   -4475.64        | 0.624583   | Declinante       |
+| Togo                             |   -2091.38        | 0.635821   | Declinante       |
+| Tanzania                         |  196751           | 0.715842   | Volátil          |
+| Viet Nam                         |       5.57359e+06 | 0.805949   | Volátil          |
+| Ghana                            |  -34531.7         | 1.45566    | Declinante       |
+
+> 🧠 Esta clasificación permite adaptar las estrategias comerciales según el momento del ciclo en que se encuentra cada país.
+
+---
+
+### 🔹 Concentración del mercado global
+
+Se evaluó la **desigualdad en el consumo entre países** usando dos métricas clave:
+
+- **Índice de Gini**: mide la desigualdad en la distribución del consumo. Valores cercanos a 0 indican equidad; valores cercanos a 1 indican concentración extrema.
+- **Índice de Herfindahl-Hirschman (HHI)**: suma de los cuadrados de las participaciones porcentuales por país. Es comúnmente usado en economía para medir concentración de mercado.
+
+#### Resultados:
+
+- **Índice de Gini**: `0.8335`
+- **Índice HHI**: `2302.91`
+- 
+>
+- El **índice de Gini de 0.83** indica una **alta desigualdad en el consumo**: unos pocos países concentran la mayor parte del consumo global.
+- El **HHI de 2302.91** sugiere un mercado **moderadamente concentrado**, cercano al umbral de concentración alta (2500). Aunque hay varios actores relevantes, algunos países dominan la mayor parte del volumen.
 
 
 
