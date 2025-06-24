@@ -460,9 +460,9 @@ Se aplicó el algoritmo **K-Means con 3 clústers**. Luego, se utilizó PCA (An�
 
 Cada clúster agrupa países con patrones de consumo similares, considerando tanto magnitud como trayectoria a lo largo de 30 años:
 
-- **Cluster 0**: países con alto y creciente consumo (ej. Brazil, Viet Nam)
-- **Cluster 1**: países con bajo consumo o patrones estables
-- **Cluster 2**: países con volatilidad o cambios abruptos
+- **Cluster 0**: países con bajo consumo o patrones estables
+- **Cluster 1**: países que "controlan el mercado"
+- **Cluster 2**: países con alto y creciente consumo
 
 > 🧠 Esta segmentación puede apoyar decisiones estratégicas como campañas regionales, selección de mercados meta o desarrollo de productos diferenciados por perfil de consumo.
 
