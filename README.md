@@ -172,3 +172,121 @@ También se analizaron los patrones por variedad de café (Arabica, Robusta, etc
 - **Gráfico de líneas** con la evolución anual del consumo por tipo:  
 ![Evolucion_Consumo_Tipo.png](./outputs/Evolucion_Consumo_Tipo.png)
 
+## 📈 Paso 3: Análisis de Tendencias
+
+Para comprender el comportamiento de largo plazo del consumo de café, se calcularon las **tendencias anuales** por país y por tipo de café, utilizando regresiones lineales simples. Esto permitió identificar patrones crecientes, estables o decrecientes.
+
+---
+
+### 🔹 Tendencias por país
+
+Se calculó la **pendiente de crecimiento** (slope) de consumo para cada país. Los resultados se almacenaron en la tabla:
+
+[`tendencias_pais.csv`](./outputs/tendencias_pais.csv)
+
+Ejemplo de las primeras filas:
+
+| Country                          |     Trend (slope) |          R² |
+|:---------------------------------|------------------:|------------:|
+| Brazil                           |       3.15095e+07 | 0.99087     |
+| Indonesia                        |       8.62927e+06 | 0.936861    |
+| Philippines                      |       5.85995e+06 | 0.836835    |
+| Ethiopia                         |       5.77131e+06 | 0.990189    |
+| Viet Nam                         |       5.57359e+06 | 0.904016    |
+| Mexico                           |       3.39656e+06 | 0.871647    |
+| Thailand                         |       2.65714e+06 | 0.886368    |
+| Venezuela                        |       1.88122e+06 | 0.796847    |
+| India                            |       1.55464e+06 | 0.917465    |
+| Colombia                         |       1.07837e+06 | 0.530006    |
+| Côte d'Ivoire                    |  712885           | 0.668166    |
+| Madagascar                       |  471646           | 0.280251    |
+| Honduras                         |  431299           | 0.688265    |
+| Uganda                           |  420655           | 0.981734    |
+| Nicaragua                        |  314433           | 0.81842     |
+| El Salvador                      |  241001           | 0.467414    |
+| Guatemala                        |  214799           | 0.722753    |
+| Tanzania                         |  196751           | 0.902137    |
+| Dominican Republic               |  172809           | 0.829404    |
+| Peru                             |  151635           | 0.882467    |
+| Lao People's Democratic Republic |   80061.9         | 0.325829    |
+| Bolivia (Plurinational State of) |   73521.7         | 0.985912    |
+| Haiti                            |   71546.2         | 0.227508    |
+| Cuba                             |   53148.4         | 0.445239    |
+| Kenya                            |   28812           | 0.476408    |
+| Guinea                           |   19735.3         | 0.15233     |
+| Guyana                           |   18457.6         | 0.822138    |
+| Angola                           |   16885.4         | 0.126766    |
+| Nigeria                          |    7788.65        | 0.213155    |
+| Paraguay                         |    5406.01        | 0.2703      |
+| Liberia                          |    2162.4         | 0.2703      |
+| Congo                            |     231.137       | 0.161131    |
+| Burundi                          |      85.1212      | 0.00368596  |
+| Timor-Leste                      |       0           | 1           |
+| Democratic Republic of Congo     |    -774.194       | 0.0967742   |
+| Sri Lanka                        |    -832.165       | 0.000131158 |
+| Gabon                            |   -1006.17        | 0.19584     |
+| Rwanda                           |   -1036.67        | 0.0620106   |
+| Papua New Guinea                 |   -1248.29        | 0.193067    |
+| Togo                             |   -2091.38        | 0.16061     |
+| Zambia                           |   -2360.42        | 0.371276    |
+| Malawi                           |   -2522.8         | 0.630701    |
+| Central African Republic         |   -4475.64        | 0.00582596  |
+| Sierra Leone                     |   -5766.41        | 0.37607     |
+| Trinidad & Tobago                |   -5853.17        | 0.187879    |
+| Zimbabwe                         |   -7529.06        | 0.476527    |
+| Jamaica                          |   -8339.97        | 0.153936    |
+| Panama                           |   -8532.73        | 0.105214    |
+| Costa Rica                       |  -24819.2         | 0.0125756   |
+| Ghana                            |  -34531.7         | 0.394821    |
+| Cameroon                         |  -48439.2         | 0.336371    |
+| Yemen                            | -250882           | 0.72931     |
+| Ecuador                          | -488529           | 0.730899    |
+
+> ℹ️ La pendiente representa la variación promedio anual del consumo. Un valor positivo alto indica una tendencia creciente.
+
+---
+
+### 🔹 Visualización: países con mayor crecimiento
+
+Se seleccionaron los **4 países con las tendencias positivas más altas** y se graficaron sus curvas de regresión para ilustrar su evolución de consumo a lo largo del tiempo.
+
+![Top 4 países con mayor tendencia](./outputs/Tendencias_Top4_Paises_Pos.png)
+
+---
+
+### 🔹 Visualización: países con mayor volumen total
+
+Además, se analizaron los **10 países con mayor consumo total acumulado**. Esta visualización permite contrastar volumen histórico vs. velocidad de crecimiento.
+
+![Países con mayor volumen total](./outputs/Tendencias_Paises_Mayor_Volumen.png)
+
+
+### 🔹 Tendencias por tipo de café
+
+También se analizó la evolución temporal del consumo para cada variedad de café utilizando regresiones lineales simples. Se calculó la **pendiente de crecimiento anual** (slope) y el **coeficiente de determinación (R²)** para cada tipo.
+
+📎 Archivo con resultados: [`tendencias_tipo.csv`](./outputs/tendencias_tipo.csv)
+
+Vista previa de las tendencias calculadas:
+
+| Coffee type     |   Trend (slope) |       R² |
+|:----------------|----------------:|---------:|
+| Arabica/Robusta |     3.50007e+07 | 0.987562 |
+| Robusta/Arabica |     2.46621e+07 | 0.923405 |
+| Arabica         |     1.03534e+07 | 0.985155 |
+| Robusta         |     1.62338e+06 | 0.653865 |
+
+> ℹ️ La pendiente indica el ritmo promedio de crecimiento anual. Un valor más alto sugiere mayor expansión del consumo.
+
+---
+
+### 🔹 Visualización: evolución por tipo de café
+
+La siguiente gráfica muestra la evolución del consumo total anual por tipo de café, junto con una línea de tendencia ajustada mediante regresión lineal:
+
+![Tendencia por tipo de café](./outputs/Tendencia_Tipo_Cafe_LinearFit.png)
+
+---
+
+
+
