@@ -74,7 +74,7 @@ Una vez transformada la base, se realizaron diversos análisis exploratorios par
 
 Se generó una gráfica de líneas con escala logarítmica para representar la evolución anual del consumo por país, diferenciando la variedad de café. Dado que las magnitudes de consumo entre países varían mucho, la escala logarítmica ayuda a visualizar mejor las trayectorias.
 
-📎 Archivo generado: [`Prod_cafe.png`](./outputs/Prod_cafe.png)
+![Evolución del consumo total por país](./outputs/Prod_cafe.png)
 
 ---
 
@@ -155,10 +155,10 @@ Ejemplo de las primeras filas:
 Se agregaron los datos por región geográfica (continente) mediante un mapeo manual de países, y se generaron las siguientes visualizaciones:
 
 - **Gráfico de barras** con el consumo total acumulado por continente:  
-  📎 [`Consumo_Total_Continente.png`](./outputs/Consumo_Total_Continente.png)
+![Consumo_Total_Continente.png](./outputs/Consumo_Total_Continente.png)
 
 - **Gráfico de líneas** con la evolución temporal del consumo por continente, incluyendo en la leyenda los países involucrados:  
-  📎 [`Consumo_Anual_Continente.png`](./outputs/Consumo_Anual_Continente.png)
+![Consumo_Anual_Continente.png](./outputs/Consumo_Anual_Continente.png)
 
 ---
 
@@ -167,8 +167,8 @@ Se agregaron los datos por región geográfica (continente) mediante un mapeo ma
 También se analizaron los patrones por variedad de café (Arabica, Robusta, etc.):
 
 - **Gráfico de barras** con el consumo total por tipo:  
-  📎 [`Consumo_Total_Tipo.png`](./outputs/Consumo_Total_Tipo.png)
+![Consumo_Total_Tipo.png](./outputs/Consumo_Total_Tipo.png)
 
 - **Gráfico de líneas** con la evolución anual del consumo por tipo:  
-  📎 [`Evolucion_Consumo_Tipo.png`](./outputs/Evolucion_Consumo_Tipo.png)
+![Evolucion_Consumo_Tipo.png](./outputs/Evolucion_Consumo_Tipo.png)
 
