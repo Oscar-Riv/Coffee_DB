@@ -427,4 +427,42 @@ A continuación se muestran las proyecciones gráficas por tipo de café y por p
 📊 ![Forecast por país](./outputs/Forecast_Paises_Top.png)
 
 
+## 🧩 Paso 6: Clustering de Países por Consumo Anual
+
+Para identificar grupos de países con patrones similares de consumo de café a lo largo del tiempo, se aplicó un análisis de **agrupamiento no supervisado (K-Means)** utilizando como input las series de consumo anual por país.
+
+---
+
+### 🔹 Metodología
+
+1. **Preprocesamiento:**
+   - Se construyó una tabla con países como filas y años como columnas.
+   - Los valores faltantes se imputaron con 0.
+   - Se aplicó estandarización (z-score) para normalizar magnitudes.
+
+2. **Selección del número óptimo de clústers (k):**
+   - Se aplicó el **método del codo**, que evalúa la inercia (suma de distancias cuadradas internas).
+   - Se probó k en el rango de 1 a 10 y se identificó una flexión en **k=3**.
+
+![Elbow method](./outputs/Elbow_Method_KMeans.png)
+
+---
+
+### 🔹 Resultados del clustering (k=3)
+
+Se aplicó el algoritmo **K-Means con 3 clústers**. Luego, se utilizó PCA (Análisis de Componentes Principales) para reducir la dimensionalidad a 2 ejes y visualizar gráficamente los resultados.
+
+📎 Resultados: [`clustering_resultados.csv`](./outputs/clustering_resultados.csv)
+
+![Clustering de países](./outputs/Clustering_Paises_Cafe.png)
+
+---
+
+Cada clúster agrupa países con patrones de consumo similares, considerando tanto magnitud como trayectoria a lo largo de 30 años:
+
+- **Cluster 0**: países con alto y creciente consumo (ej. Brazil, Viet Nam)
+- **Cluster 1**: países con bajo consumo o patrones estables
+- **Cluster 2**: países con volatilidad o cambios abruptos
+
+> 🧠 Esta segmentación puede apoyar decisiones estratégicas como campañas regionales, selección de mercados meta o desarrollo de productos diferenciados por perfil de consumo.
 
