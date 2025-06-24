@@ -40,3 +40,26 @@ A continuación se describen los pasos principales realizados en el análisis:
 - `/data/`: datos procesados y exportaciones parciales
 - `/scripts/`: Scripts de python con cada paso del análisis
 - `/outputs/`: visualizaciones, tablas resumen y archivos de pronóstico
+
+---
+## 🧾 Paso 1: Transformación de los datos
+
+La base de datos original contenía el consumo de café en formato ancho, con columnas por año (por ejemplo `'1990/91'`, `'1991/92'`, etc.). Para facilitar el análisis temporal, se aplicó una transformación a formato largo usando `pandas.melt()`.
+
+El resultado fue un nuevo conjunto de datos con las columnas:
+
+- `Country`: país de origen
+- `Coffee type`: variedad de café (una por país)
+- `Year`: año de consumo (extraído del formato `'1990/91'` como `1990`)
+- `Consumption`: consumo total registrado ese año
+
+Este archivo transformado fue guardado como [`coffee_db.csv`](./data/coffee_db.csv) en la carpeta `/data/`, y se utilizó como base para los análisis posteriores.
+
+Vista previa de las primeras filas del archivo:
+| Country                          | Coffee type     |   Total_domestic_consumption |   Year |   Consumption |
+|:---------------------------------|:----------------|-----------------------------:|-------:|--------------:|
+| Angola                           | Robusta/Arabica |                     46500000 |   1990 |       1200000 |
+| Bolivia (Plurinational State of) | Arabica         |                     75180000 |   1990 |       1500000 |
+| Brazil                           | Arabica/Robusta |                  27824700000 |   1990 |     492000000 |
+| Burundi                          | Arabica/Robusta |                      3412020 |   1990 |        120000 |
+| Ecuador                          | Arabica/Robusta |                    381540000 |   1990 |      21000000 |
