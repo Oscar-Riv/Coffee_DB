@@ -38,5 +38,5 @@ A continuación se describen los pasos principales realizados en el análisis:
 ## 📂 Contenido
 
 - `/data/`: datos procesados y exportaciones parciales
-- `/notebooks/`: notebooks con cada paso del análisis
+- `/scripts/`: Scripts de python con cada paso del análisis
 - `/outputs/`: visualizaciones, tablas resumen y archivos de pronóstico
